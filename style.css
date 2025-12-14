@@ -1,0 +1,335 @@
+
+body {
+  margin: 0;
+  margin-top: -15vh;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #0a0f25, #1c2a4a);
+  color: white;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 100px 60px 40px 60px;
+}
+
+/* RUBRIK ETT */
+header h1 {
+  margin: 0;
+  margin-top: 50px;
+  font-size: 4rem;
+  color: white;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* RUBRIK TVÅ */
+header h3 {
+  margin: 10px 0 0 0;
+  margin-top: 20px;
+  font-size: 3rem;
+  color: #f9c347;
+  font-weight: 600;
+  text-align: right;
+}
+
+.hero {
+  position: relative;
+  min-height: 150vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.planet-nav li:nth-child(1) button {
+  background: #ffd82d;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  left: -290px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  border: none;
+  z-index: 10;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.planet-nav li:nth-child(1) button:hover {
+  box-shadow:
+    0 0 40px rgba(255, 200, 50, 0.8),
+    0 0 80px rgba(255, 180, 20, 0.6);
+  transform: translateY(-50%) scale(1.03);
+}
+
+@keyframes sunPulse { 
+  0% {
+    box-shadow: 0 0 40px rgba(255, 220, 100, 0.6),
+      0 0 80px rgba(255, 200, 50, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(255, 240, 150, 0.9),
+    0 0 120px rgba(255, 220, 100, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(255, 220, 100, 0.6),
+     0 0 80px rgba(255, 200, 50, 0.4);
+  }
+}
+
+.planet-nav {
+  position: relative;
+  width: 100%;
+  margin-top: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 80px 0 50px;
+}
+
+.planet-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: calc(100% - 250px);
+  margin-left: 250px;
+  gap: 30px;
+}
+
+.planet-nav button {
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.planet-nav button:hover {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+.planet-nav li:nth-child(2) button { background: #7d7b78; width: 20px; height: 20px; }
+.planet-nav li:nth-child(3) button { background: #c9c9c9; width: 50px; height: 50px; }
+.planet-nav li:nth-child(4) button { background: #169b78; width: 55px; height: 55px; }
+.planet-nav li:nth-child(5) button { background: #ff8153; width: 30px; height: 30px; }
+.planet-nav li:nth-child(6) button { background: #eab472; width: 200px; height: 200px; }
+.planet-nav li:nth-child(7) button { background: #eeffa4; width: 150px; height: 150px; }
+.planet-nav li:nth-child(8) button { background: #bed4ed; width: 70px; height: 70px; }
+.planet-nav li:nth-child(9) button { background: #7aabe0; width: 70px; height: 70px; }
+
+.planet-nav li:nth-child(7) button {
+  position: relative;
+  z-index: 1;
+}
+
+.planet-nav li:nth-child(7) button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 4px;
+  background: white;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 2px;
+  z-index: 2;
+}
+
+.planet-nav ul li:last-child {
+  margin-right: 20px;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 37, 0.95);
+  color: white;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: none;
+  z-index: 100;
+}
+
+#overlay.show {
+  display: block;
+}
+
+#overlay h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+#overlay p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#closeOverlay {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 1.2rem;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* Vit rektangel mitt på overlay för textinnehåll */
+
+
+/* Justera rubrik i rutan */
+#overlay h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+/* Justera text i rutan */
+#overlay p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  word-break: break-word;
+}
+
+/* Stäng-knappen i rutan */
+#closeOverlay {
+  display: block;
+  margin-left: auto;              /* längst höger */
+  background-color: #192152;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+#closeOverlay:hover {
+  background-color: #373e43;
+}
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  grid-template-columns: 45% 55%;
+  background: radial-gradient(circle at left, #123b7a, #0a0f25 60%);
+  color: white;
+  z-index: 999;
+  padding: 80px;
+}
+
+#overlay.show {
+  display: grid;
+}
+#overlay h2,
+#overlay p {
+  grid-column: 2;
+  max-width: 600px;
+}
+#overlay h2 {
+  font-size: 4rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 10px;
+}
+
+#overlay h2::after {
+  content: "TELLUS";
+  display: block;
+  font-size: 1rem;
+  letter-spacing: 0.5rem;
+  color: #f9c347;
+  margin-top: 10px;
+}
+#overlay p {
+  line-height: 1.8;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/*PLANET TILL VÄNSTER */
+
+#overlay::before {
+  content: "";
+  position: absolute;
+  left: -30%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #5fa8ff, #1b3c6e);
+}
+
+#overlay h2,
+#overlay p {
+  position: relative;
+  z-index: 2;
+}
+
+#closeOverlay {
+  z-index: 3;
+}
+
+/*STATISTIK-LAYOUT */
+#overlay p {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 80px;
+  margin-top: 40px;
+}
+#overlay p strong {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+#overlay p {
+  font-size: 0.95rem;
+}
+#overlay p br + br {
+  grid-column: 1 / -1;
+}
+/*LINJER I STATISTIK */
+
+#overlay p strong {
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+}
+
+#overlay p strong::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+#overlay p strong {
+  grid-column: span 1;
+}
+
+
+
